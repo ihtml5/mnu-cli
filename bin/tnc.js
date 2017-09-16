@@ -5,6 +5,8 @@ const _ = require('lodash');
 const chalk = require('chalk');
 const clear = require('clear');
 const figlet = require('figlet');
+const Cli = require('clui');
+const Spinner = Cli.Spinner;
 
 clear();
 console.log(
@@ -72,14 +74,12 @@ program
             ]
           })
         }
-        inquirer.prompt(promps).then(function (answers) {
-            console.log(answers)
-        })
+        inquirer.prompt(promps).then((options) => {
+            const status = new Spinner('模版正在创建中，请稍后...');
+            status.start();
+            setTimeout(() => {
+                status.stop()
+            }, 3000);
+        });
     })
-    .on('--help', function() {
-        console.log('  Examples:')
-        console.log('')
-        console.log('$ app module moduleName')
-        console.log('$ app m moduleName')
-    }) 
 program.parse(process.argv)
