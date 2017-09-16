@@ -6,6 +6,7 @@ const chalk = require('chalk');
 const clear = require('clear');
 const figlet = require('figlet');
 const Cli = require('clui');
+const clone = require('git-clone');
 const Spinner = Cli.Spinner;
 
 clear();
@@ -33,7 +34,7 @@ program
               promps.push({
                 type: 'input',
                 name: 'moduleName',
-                message: '请输入模块名称',
+                message: '请输入模版名称',
                 validate: function (input){
                     if(!input) {
                         return '不能为空'
@@ -45,8 +46,8 @@ program
         if(config.description !== 'string') {
             promps.push({
                 type: 'input',
-                name: 'moduleDescription',
-                message: '请输入模块描述'
+                name: 'tplDesc',
+                message: '请输入模版描述'
             })
         }
         if(config.sass === false && config.less === false) {
@@ -74,12 +75,19 @@ program
             ]
           })
         }
+        if(config.description !== 'string') {
+            promps.push({
+                type: 'input',
+                name: 'gitUrl',
+                message: 'remote url'
+            })
+        }
         inquirer.prompt(promps).then((options) => {
             const status = new Spinner('模版正在创建中，请稍后...');
             status.start();
-            setTimeout(() => {
-                status.stop()
-            }, 3000);
+            clone(`${options.gitUrl}`, `${process.cwd()}`, () => {
+                status.stop();
+            });
         });
     })
 program.parse(process.argv)
