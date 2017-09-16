@@ -1,4 +1,4 @@
-# tnc
+# Tnc
 so easy and quickly create template
 
 
