@@ -1,4 +1,4 @@
-# Tnc
+# norton-cli
 so easy and quickly create template
 
 
