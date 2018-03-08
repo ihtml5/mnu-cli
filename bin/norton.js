@@ -16,8 +16,8 @@ console.log(
   )
 );
 program
-    .command('create')
-    .alias('m')
+    .command('init')
+    .alias('n')
     .description('创建新的模块')
     .option('--name [moduleName]')
     .option('--sass', '启用sass')
