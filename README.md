@@ -1,4 +1,4 @@
-# norton-cli
+# mnu-cli
 so easy and quickly create template
 
 
@@ -11,3 +11,4 @@ so easy and quickly create template
 3. [Build a JavaScript Command Line Interface (CLI) with Node.js](https://www.sitepoint.com/javascript-command-line-interface-cli-node-js/)
 
 4. [node命令行小工具开发【翻译小工具】](https://segmentfault.com/a/1190000008714075)
+5. [前端ci工具开发总结](https://github.com/lanjingling0510/blog/issues/10)
